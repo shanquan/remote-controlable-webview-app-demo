@@ -1,0 +1,12 @@
+<ion-view view-title="list">
+    <ion-content class='list' ng-keydown="KeydownFn($event)">
+        <div class="list">
+            <div class="item item-divider">
+                List Bars
+            </div>
+            <div class="item item-complex" ng-repeat="item in list">
+              <a class='item-content' href="#{{item.text}}">{{item.text}}</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

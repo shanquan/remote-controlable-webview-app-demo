@@ -1,0 +1,13 @@
+<ion-view view-title="radio">
+  <ion-content class='radio' ng-keydown="KeydownFn($event)">
+  <div class="list">
+  <label class="item item-radio" ng-repeat="item in radioList">
+    <input type="radio" name='radio' tabindex="{{2+$index}}" ng-value="item.text" ng-change='radioChange(item)' ng-model="data.radio"/>
+    <div class="item-content">
+      {{ item.text }}
+    </div>
+    <i class="radio-icon ion-checkmark"></i>
+  </label>
+  </div>
+  </ion-content>
+</ion-view>

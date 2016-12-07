@@ -1,0 +1,38 @@
+<ion-view view-title="remote button test">
+  <ion-content class="padding dash" ng-keydown="onkeydown($event)">
+    <div class="list card">
+      <div class="item item-divider">
+        <div class='row'>
+          <div class='col col-center'><a tabindex="1" class="button button-icon icon ion-arrow-up-b"></a></div>
+        </div>
+        <div class='row' style='width:210px;margin:0 auto;'>
+          <div class='col col-center'><a tabindex="2" class="button button-icon icon ion-arrow-left-b"></a></div>
+          <div class='col col-center'><button tabindex="3" class="button icon btnOK">OK</button></div>
+          <div class='col col-center'><a tabindex="4" class="button button-icon icon ion-arrow-right-b"></a></div>
+        </div>
+        <div class='row'>
+          <div class='col col-center'><a tabindex="5" class="button button-icon icon ion-arrow-down-b"></a></div>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div class='row'>
+          <!-- <div class='col col-center'><button class="button icon ion-home"></button></div> -->
+          <div class='col col-center'><button tabindex="6" class="button icon ion-arrow-return-left"></button></div>
+          <div class='col col-center'><button tabindex="7" class="button icon ion-android-add"></button></div>
+          <div class='col col-center'><button tabindex="8" class="button icon ion-android-remove"></button></div>
+          <div class='col col-center'><button tabindex="9" ng-click='goMenu()' class="button icon activated ion-android-menu"></button></div>
+        </div> 
+        <div class='row' style='margin-top:10px'>
+          <div class='col col-center col-border' data-href='form' tabindex="10">form</div>
+          <div class='col col-center col-border' data-href='menu' tabindex="11">menu</div>
+          <div class='col col-center col-border' data-href='tabs' tabindex="12">tabs</div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+    <div class="bar bar-footer bar-stable">
+    <div class='button-clear pull-right'>KEYCODE</div>
+  <div class="title">{{keycode}}</div>
+</div>
+</ion-view>

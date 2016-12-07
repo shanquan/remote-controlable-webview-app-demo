@@ -1,0 +1,52 @@
+/* Empty. Add your own CSS if you like */
+
+.col-center {
+    text-align: center;
+}
+
+.col-border {
+    border: 1px dotted #ccc;
+}
+
+*:focus {
+    outline: #0761f9 auto 5px!important;
+    /*rgba(77, 144, 254,0.6) #387ef5 
+      rgba(77, 144, 254,0.8) #0761f9*/
+}
+.tabfocus{
+    outline: #0761f9 auto 5px!important;
+    border: 2px solid rgba(77, 144, 254, 0.8)!important;
+}
+[data-href] {
+    cursor: pointer;
+}
+
+a.item-content:focus,/*list item,可写可不写*/
+ion-item:focus .item-content,/*menu list item*/
+input:focus + .item-content {/*checkbox\radio*/
+    border: 2px solid rgba(77, 144, 254, 0.8)!important;
+    color: #387ef5!important;
+    height: 52px;
+}
+
+.item-checkbox input:focus {
+    outline: 0!important;
+}
+
+.item-checkbox .item-content {
+    position: relative;
+    top: -40px;
+    height: 52px;
+    left: -15px;
+    width: 103%;
+}
+
+.item-radio input {/*修正radio样式导致的TV上无法获取焦点问题，将input定位到视图区尽量显示最少*/
+    position: relative;
+    float: left;
+    /*-webkit-appearance:none;*/
+    border: 0;
+    background: transparent;
+    left: -11px;
+    top: 20px;
+}

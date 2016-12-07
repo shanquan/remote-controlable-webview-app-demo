@@ -1,0 +1,52 @@
+<ion-view view-title="form">
+  <ion-content class='form' ng-keydown="KeydownFn($event)">
+  <!-- <div class='item-divider'></div> -->
+  <div class="list">
+  <label class="item item-radio" ng-repeat="item in radioList">
+    <input type="radio" name='radio' tabindex="{{1+$index}}" ng-value="item.text" ng-change='radioChange(item)' ng-model="data.radio"/>
+    <div class="item-content">
+      {{ item.text }}
+    </div>
+    <i class="radio-icon ion-checkmark"></i>
+  </label>
+   <div class="item item-checkbox" ng-repeat="item in checkboxList">
+     <label class="checkbox">
+       <input type="checkbox" name='checkbox' tabindex="{{6+$index}}" data-index='{{$index}}' ng-model="item.checked" ng-checked="item.checked">
+       <div class="item-content">
+    </div>
+     </label>
+     {{ item.text }}
+  </div>
+  <label class="item item-input">
+      <span class="input-label">text</span>
+      <input type="text" tabindex="9" ng-model="data.text">
+    </label>
+    <label class="item item-input">
+      <span class="input-label">password</span>
+      <input type="password" tabindex="10" ng-model="data.psw">
+    </label>
+    <label class="item item-select">
+      <span class="select-label">select</span>
+    <select ng-model='data.select' tabindex="11">
+      <option ng-repeat='item in selectList'>{{item}}</option>
+    </select>
+    </label>
+      <li class="item item-toggle">
+     toggle
+     <label class="toggle toggle-balanced">
+       <input type="checkbox" ng-model="data.remb">
+       <div class="track" name='toggle' tabindex="12">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </div>
+  <div class="button-bar">
+  <button class="button" tabindex="13" ng-click='goDash()'>dash</button>
+  <button class="button" tabindex="14" ng-click='goMenu()'>menu</button>
+  <button class="button" tabindex="15" ng-click='goTabs()'>tabs</button>
+</div>
+  <!-- <div class='padding'>
+    <button tabindex="16" class='button button-block' ng-click='godash()'>remote button test</button>
+  </div> -->
+  </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view view-title="checkbox">
+  <ion-content ng-keydown="KeydownFn($event)">
+  <label class="item item-select">
+      <span class="select-label">select</span>
+    <select ng-model='data.select' tabindex="2">
+      <option ng-repeat='item in selectList'>{{item}}</option>
+    </select>
+    </label>
+  <div class="list">
+  <div class="item item-checkbox">
+     <label class="checkbox">
+       <input type="checkbox" name='checkall' tabindex='3' ng-model='allChecked' ng-click="checkAll(allChecked,checkboxList)">
+       <div class="item-content">
+    </div>
+     </label>
+    全选
+  </div>
+   <div class="item item-checkbox" ng-repeat="item in checkboxList">
+     <label class="checkbox">
+       <input type="checkbox" name='checkbox' tabindex="{{4+$index}}" data-index='{{$index}}' ng-model="item.checked" ng-checked="item.checked">
+       <div class="item-content">
+    </div>
+     </label>
+     {{ item.text }}
+  </div>
+  </div>
+  </ion-content>
+</ion-view>
