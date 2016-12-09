@@ -15,8 +15,8 @@
 电视的默认显示960px*540px，不建议一页内容太长引出滚动条，因页面跳转及返回时滚动条的位置不好控制。
 ##ionic版本v1.1.0
 支持纯css的radio控件的最高版本为v1.1.0,为兼容遥控器操作交互控件需尽量使用原生的html表单标签元素（input/button）,否则TV上的控件难以自动获取焦点且通过代码进行焦点导航比较复杂，而ionic v1.1.0以上版本不再支持纯css的radio控件如下：
-```
 html
+```
 <label class="item item-radio">
     <input type="radio" name='radio' ng-model="data.radio"/>
     <div class="item-content">
@@ -27,24 +27,24 @@ html
 ```
 
 ##form:input text
-```
 html
+```
 <label class="item item-input">
       <span class="input-label">text</span>
       <input type="text" ng-model="data.text">
     </label>
 ```
 ##form:input password
-```
 html
+```
 <label class="item item-input">
       <span class="input-label">password</span>
       <input type="password" ng-model="data.psw">
     </label>
 ```
 ##form:input select
-```
 html
+```
 <label class="item item-select">
       <span class="select-label">select</span>
     <select ng-model='data.select'>
@@ -53,8 +53,8 @@ html
 </label>
 ```
 ##form:toggle
-```
 html
+```
 <div class="item item-toggle">
      toggle
      <label class="toggle toggle-balanced">
@@ -69,7 +69,6 @@ html
 #ionic sidemenu-ionic菜单应用遥控器操作优化
 html
 ```
-html
  <ion-side-menu side="left" ng-show="menuVisible">
     <ion-header-bar class="bar-stable">
       <h1 class="title">Left</h1>
@@ -100,7 +99,6 @@ html
 ```
 css
 ```
-css
 ion-item:focus .item-content{
     border: 2px solid rgba(77, 144, 254, 0.8)!important;
     color: #387ef5!important;
@@ -109,7 +107,6 @@ ion-item:focus .item-content{
 ```
 controller.js
 ```
-javascript
 $scope.KeydownFn = function(e) {
             target = e.srcElement || e.target;
             keyCode = e.keyCode;
@@ -141,7 +138,6 @@ tabs选项卡还有问题，代码中的方案待优化
 #ionic checkbox控件的遥控器操作优化
 html
 ```
-html
 <div class="item item-checkbox">
      <label class="checkbox">
        <input type="checkbox" name='checkbox' data-index='{{$index}}' ng-model="item.checked" ng-checked="item.checked">
@@ -153,7 +149,6 @@ html
 ```
 css
 ```
-css
 input:focus + .item-content {/*checkbox\radio*/
     border: 2px solid rgba(77, 144, 254, 0.8)!important;
     color: #387ef5!important;
@@ -173,8 +168,8 @@ input:focus + .item-content {/*checkbox\radio*/
 ```
 
 #ionic radio控件的遥控器操作优化
-```
 html
+```
 <label class="item item-radio">
     <input type="radio" name='radio' ng-model="data.radio"/>
     <div class="item-content">
@@ -183,8 +178,8 @@ html
     <i class="radio-icon ion-checkmark"></i>
   </label>
 ```
-```
 css
+```
 input:focus + .item-content {/*checkbox\radio*/
     border: 2px solid rgba(77, 144, 254, 0.8)!important;
     color: #387ef5!important;
