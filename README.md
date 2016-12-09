@@ -26,7 +26,9 @@ ionic框架开发Web APP在电视上针对遥控器操作需进行代码优化�
 #demo
 1. git clone https://git.oschina.net/shanquane/remote-controlable-webview-app-demo.git
 2. npm install -g cordova ionic，如已安装ionic环境，此步可跳过
-3. 浏览器中查看，可通过tab键在浏览器中测试导航 ionic serve
+3. cd remote-controlable-webview-app-demo
+    ionic serve 
+浏览器中查看，可通过tab键在浏览器中测试导航
 4. ionic build android，编译apk并在电视上安装，或下载最新[release](https://git.oschina.net/shanquane/remote-controlable-webview-app-demo/attach_files/download?i=70633&u=http%3A%2F%2Ffiles.git.oschina.net%2Fgroup1%2FM00%2F00%2FAD%2FPaAvDFhKTHKAMR3KADeYZ3XpEDY192.apk%3Ftoken%3Dba2659e894de0182a2f50fb49e1ea921%26ts%3D1481264236%26attname%3Dandroid-debug.apk)
 
 
