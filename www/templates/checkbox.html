@@ -1,6 +1,6 @@
 <ion-view view-title="checkbox">
   <ion-content ng-keydown="KeydownFn($event)">
-  <style>
+  <!-- <style>
   /*当checkbox数量少于一页时，无法从headerbar上的logo向下导航.增加一个label input或select可修正此bug*/
   label.spolefill{padding:0.5px;}
     label.spolefill:after{
@@ -15,6 +15,12 @@
       <span class="select-label"></span>
       <select tabindex="2">
       <option></option>
+    </select>
+    </label> -->
+    <label class="item item-select">
+      <span class="select-label">select</span>
+    <select ng-model='data.select' tabindex="2">
+      <option ng-repeat='item in selectList'>{{item}}</option>
     </select>
     </label>
   <div class="list">
