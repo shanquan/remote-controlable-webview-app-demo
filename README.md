@@ -99,6 +99,7 @@ html
 ```
 css
 ```
+a.item-content:focus,
 ion-item:focus .item-content{
     border: 2px solid rgba(77, 144, 254, 0.8)!important;
     color: #387ef5!important;
