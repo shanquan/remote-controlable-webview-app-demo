@@ -61,6 +61,35 @@ angular.module('starter.controllers', [])
             btnClick('ion-arrow-right-b');
         }
     }
+        // $scope.keyDownFn = function(e){
+        //   target = e.srcElement||e.target;
+        //   keyCode = e.keyCode;
+        //   // //换上下键切换
+        //   if(38==keyCode){//up
+        //       var tab = parseInt(target.getAttribute('tabindex'));
+        //       if(tab==1){
+        //           // document.querySelector("[tabindex='5']").focus();//循环
+        //       }else{
+        //         tab--;
+        //         tab = tab.toString();
+        //         document.querySelector("[tabindex='"+tab+"']").focus();
+        //       }
+        //   }else if(40==keyCode){ //down
+        //       var tab = parseInt(target.getAttribute('tabindex'));
+        //       if(tab==5){
+        //         // document.querySelector("[tabindex='1']").focus();
+        //       }else{
+        //         tab++;
+        //         tab = tab.toString();
+        //         document.querySelector("[tabindex='"+tab+"']").focus();  
+        //       }
+        //   }else if(13==keyCode){//触发input click();
+        //       if(target.querySelector("input")){
+        //           // target.querySelector("input").click();
+        //         $scope.data.ip = target.querySelector("input").value;
+        //       }
+        //   }
+        // }
 })
 
 .controller('formCtrl', function($scope, $state) {
