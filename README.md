@@ -198,6 +198,41 @@ input:focus + .item-content {/*checkbox\radio*/
 ```
 #quirks-注意事项
 - keydown事件如果直接在input焦点元素上侦听，将导致无法input无法获取焦点，所以统一在ion-content上侦听
+- 默认cordova-android版本无法侦听menu键，修改以下内容可以实现menu键侦听：
+1. cordova.js(android/assets/) line-1683:
+PS: 每次cordova prepare或cordova build后cordova.js文件都会复原，修改后执行cordova compile即可。
+```
+// Add hardware MENU and SEARCH button handlers
+//cordova.addDocumentEventHandler('menubutton');//注释此行
+cordova.addDocumentEventHandler('searchbutton');
+
+function bindButtonChannel(buttonName) {
+    // generic button bind used for volumeup/volumedown buttons
+    var volumeButtonChannel = cordova.addDocumentEventHandler(buttonName + 'button');
+    volumeButtonChannel.onHasSubscribersChange = function() {
+        exec(null, null, APP_PLUGIN_NAME, "overrideButton", [buttonName, this.numHandlers == 1]);
+    };
+}
+// Inject a listener for the volume buttons on the document.
+bindButtonChannel('volumeup');
+bindButtonChannel('volumedown');
+bindButtonChannel('menu');//添加此行
+```
+2. CoreAndroid.java(android/CordovaLib/src/org.apache.cordova/) line-256
+```
+public void overrideButton(String button, boolean override) {
+    LOG.i("App", "WARNING: Volume Button Default Behavior will be overridden.  The volume event will be fired!");
+    if (button.equals("volumeup")) {
+        webView.setButtonPlumbedToJs(KeyEvent.KEYCODE_VOLUME_UP, override);
+    }
+    else if (button.equals("volumedown")) {
+        webView.setButtonPlumbedToJs(KeyEvent.KEYCODE_VOLUME_DOWN, override);
+    }
+    else if (button.equals("menu")) {// menubutton改为menu
+        webView.setButtonPlumbedToJs(KeyEvent.KEYCODE_MENU, override);
+    }
+}
+```
 
 #demo
 1. git clone https://git.oschina.net/shanquane/remote-controlable-webview-app-demo.git

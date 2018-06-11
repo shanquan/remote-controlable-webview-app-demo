@@ -14,9 +14,9 @@ angular.module('starter.controllers', [])
     var backAction = $ionicPlatform.registerBackButtonAction(function() {
         btnClick('ion-arrow-return-left');
     }, 151);
-    // var menuAction = $ionicPlatform.on('menubutton',function(){
-    //     alert('menu');
-    // });
+    var menuAction = $ionicPlatform.on('menubutton',function(){
+        btnClick('ion-android-menu');
+    });
     // menu键按下事件无法捕捉
     var volDownAction = $ionicPlatform.on('volumedownbutton', function() {
         btnClick('ion-android-remove');
