@@ -1,4 +1,5 @@
-#remote controlable webview app demo
+## remote controlable webview app demo
+
 电视上开发web app的相关资料网上并不多，我只在amazon developer站点上找到了web app on fireTV的一些指导，关于TV上的UI及用户体验参考：[fire-tv design-and-user-experience-guidelines](https://developer.amazon.com/public/solutions/devices/fire-tv/docs/design-and-user-experience-guidelines)
 如使用ionic框架开发Web APP在电视上针对遥控器操作需进行代码优化。基本方法如下：
 - 表单元素（button\input）在页面可见区域，可通过遥控器获取焦点，默认可根据表单元素在页面可视区域的位置通过遥控器的上下左右键导航；由于ionic框架ionic.css中设置了`outline:none`，导致表单元素在获取焦点时界面上看不出区别，所以需在css文件中添加`*:focus{outline: #0761f9 auto 5px!important;}`outline按照chrome自带focus样式设置
@@ -6,17 +7,22 @@
 
 以小米电视安装demo及遥控器操作测试为例进行说明：
 
-#remote button test-按键检测页面
+## remote button test-按键检测页面
+
 - 表单元素可直接使用遥控器导航，设置tabIndex属性导航时优先级不如元素在屏幕可视区域的上下左右位置关系优先级高；
 - 非表单元素，可通过设置tabIndex属性使之变为可获取焦点可导航元素；
 - 除首页键、菜单键无法捕捉按下事件外，遥控器的上下左右、确定（OK）键、返回键、音量+键、音量-键都可捕捉按下事件，其中返回键捕获还可设置默认响应事件的优先级，音量控制键捕获后会覆盖默认的音量调整键；参考[$ionicPlatform](http://ionicframework.com/docs/api/service/$ionicPlatform/)
 
-#form-ionic表单页
+## form-ionic表单页
+
 电视的默认显示960px*540px，不建议一页内容太长引出滚动条，因页面跳转及返回时滚动条的位置不好控制。
-##ionic版本v1.1.0
+
+### ionic版本v1.1.0
+
 支持纯css的radio控件的最高版本为v1.1.0,为兼容遥控器操作交互控件需尽量使用原生的html表单标签元素（input/button）,否则TV上的控件难以自动获取焦点且通过代码进行焦点导航比较复杂，而ionic v1.1.0以上版本不再支持纯css的radio控件如下：
+
 html
-```
+```html
 <label class="item item-radio">
     <input type="radio" name='radio' ng-model="data.radio"/>
     <div class="item-content">
@@ -26,7 +32,8 @@ html
   </label>
 ```
 
-##form:input text
+### form:input text
+
 html
 ```
 <label class="item item-input">
@@ -34,7 +41,9 @@ html
       <input type="text" ng-model="data.text">
     </label>
 ```
-##form:input password
+
+### form:input password
+
 html
 ```
 <label class="item item-input">
@@ -42,7 +51,9 @@ html
       <input type="password" ng-model="data.psw">
     </label>
 ```
-##form:input select
+
+### form:input select
+
 html
 ```
 <label class="item item-select">
@@ -52,7 +63,9 @@ html
     </select>
 </label>
 ```
-##form:toggle
+
+### form:toggle
+
 html
 ```
 <div class="item item-toggle">
@@ -66,7 +79,8 @@ html
      </div>
 ```
 
-#ionic sidemenu-ionic菜单应用遥控器操作优化
+## ionic sidemenu-ionic菜单应用遥控器操作优化
+
 html
 ```
  <ion-side-menu side="left" ng-show="menuVisible">
@@ -133,10 +147,12 @@ $scope.KeydownFn = function(e) {
 ```
 在ionic sidemenu close时，sidemenu依然在屏幕的可视区域所以还会获取焦点，导致页面中的焦点忽然消失。设置菜单不可见时左侧菜单隐藏。
 
-#ionic tabs-ionic选项卡应用遥控器操作优化
+## ionic tabs-ionic选项卡应用遥控器操作优化
+
 tabs选项卡还有问题，代码中的方案待优化
 
-#ionic checkbox控件的遥控器操作优化
+## ionic checkbox控件的遥控器操作优化
+
 html
 ```
 <div class="item item-checkbox">
@@ -168,7 +184,8 @@ input:focus + .item-content {/*checkbox\radio*/
 }
 ```
 
-#ionic radio控件的遥控器操作优化
+## ionic radio控件的遥控器操作优化
+
 html
 ```
 <label class="item item-radio">
@@ -196,7 +213,9 @@ input:focus + .item-content {/*checkbox\radio*/
     top: 20px;
 }
 ```
-#quirks-注意事项
+
+## quirks-注意事项
+
 - keydown事件如果直接在input焦点元素上侦听，将导致无法input无法获取焦点，所以统一在ion-content上侦听
 - 默认cordova-android版本无法侦听menu键，修改以下内容可以实现menu键侦听：
 1. cordova.js(android/assets/) line-1683:
@@ -234,7 +253,8 @@ public void overrideButton(String button, boolean override) {
 }
 ```
 
-#demo
+## demo
+
 1. git clone https://git.oschina.net/shanquane/remote-controlable-webview-app-demo.git
 2. npm install -g cordova ionic，如已安装ionic环境，此步可跳过
 3. cd remote-controlable-webview-app-demo
